@@ -1,0 +1,47 @@
+{% extends 'common/base.html' %}
+{% load staticfiles %}
+{% block title %}
+WebCalendar-Login
+{% endblock %}
+
+{% block body %}
+<div class="row signupbox">
+    <form class="col s12" action="{% url 'login:signup' %}" method="POST">
+        {{form}}
+        <div class="row">{% csrf_token %}
+            <div class="input-fieldcol s4">
+                <label for="username">UserName</label>
+                <input  id="username" type="text" class="validate" name='username'>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-fieldcol s4">
+                <label for="password">Password</label>
+                <input id="password1" type="password" class="validate" name='password1'>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-fieldcol s4">
+                <label for="password">Password</label>
+                <input id="password2" type="password" class="validate" name='password2'>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <button class="btn waves-effect waves-light" type="submit">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}    
+
+{% block css %}
+{{block.super}}
+
+<link rel="stylesheet" href='{% static "css/login.css" %}'>
+{% endblock %}

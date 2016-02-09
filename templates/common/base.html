@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+{% load staticfiles %}
+<html>
+    <head>
+        <title>{% block title %}
+            {% endblock %}</title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block css %}
+        <!--Import Google Icon Font-->
+        <link href="{% static 'css/icon.css' %}" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href='{% static "css/materialize.min.css" %}' media="screen,projection"/>
+        {% endblock %}
+        <!--Let browser know website is optimized for mobile-->
+    </head>
+
+    <body>
+        {% block body %}
+        {% endblock %}
+        {% block script %}
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
+        <script type="text/javascript" src='{% static "js/materialize.min.js" %}'></script>
+        {% endblock %}
+    </body>
+</html>

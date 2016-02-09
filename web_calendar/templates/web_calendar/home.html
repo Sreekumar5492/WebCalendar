@@ -1,0 +1,26 @@
+{% extends 'common/base.html' %}
+{% block body %}
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Web Calendar</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="sass.html"></a>Profile</li>
+                <li><a href="{% url 'login:logoutuser' %}">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<div>
+
+
+
+
+
+
+</div>
+
+{% endblock %}   
+{% block script %}
+{{block.super}}
+{% endblock %}
