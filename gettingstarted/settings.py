@@ -53,7 +53,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'gettingstarted.urls'
+ROOT_URLCONF = 'Test.urls'
 
 TEMPLATES = [
     {
