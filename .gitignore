@@ -2,5 +2,7 @@ venv
 *.pyc
 staticfiles
 .env
+/nbproject/
+/static_dir/
 /nbproject/private/
 migrations/
