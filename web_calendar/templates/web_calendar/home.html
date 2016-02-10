@@ -1,4 +1,9 @@
 {% extends 'common/base.html' %}
+{% load staticfiles %}
+{% block css %}
+{{block.super}}
+<link rel='stylesheet' href="{% static 'fullcalendar/fullcalendar.css' %}" />
+{% endblock %}
 {% block body %}
 <div class="navbar-fixed">
     <nav>
@@ -14,7 +19,7 @@
 <div>
 
 
-
+<div id='calendar'></div>
 
 
 
@@ -23,4 +28,8 @@
 {% endblock %}   
 {% block script %}
 {{block.super}}
+<script src="{% static 'fullcalendar/lib/jquery.min.js' %}"></script>
+<script src="{% static 'fullcalendar/lib/moment.min.js' %}"></script>
+<script src="{% static 'fullcalendar/fullcalendar.js' %}"></script>
+<script src="{% static 'js/home.js'  %}"></script>
 {% endblock %}
