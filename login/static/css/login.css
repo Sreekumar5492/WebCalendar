@@ -7,12 +7,25 @@ and open the template in the editor.
     Created on : 31 Jan, 2016, 7:35:26 PM
     Author     : sree
 */
+.base{
+    background-color: #99BF4C;    
+    margin-left: 457px;
+    margin-top: 150px;
+
+}
 .loginbox{
-    margin-top: 100px;
+    background-color: white;
+    height: 370px;
+    width: 402px;
+    padding: 5px;
 }
 .signupbox{
     margin-top: 50px;
     margin-left: 200px;
     margin-right: 550px;
 
+}
+h1{
+    font-style: italic;
+    font-family: serif;
 }

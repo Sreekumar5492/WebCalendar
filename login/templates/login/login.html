@@ -5,35 +5,37 @@ WebCalendar-Login
 {% endblock %}
 
 {% block body %}
-<div class="row loginbox">
-    <form class="col s12" action="{% url 'login:loginuser' %}" method="POST">
-        <div class="row">{% csrf_token %}
-            <div class="input-field push-s4 col s4">
-                <input  id="username" type="text" class="validate" name='username'>
-                <label for="username">UserName</label>
+<div class="row">
+    <div class='loginbox z-depth-5'>
+        <h2 class='center'>Login!</h2>
+        <form class="col s12 " action="{% url 'login:loginuser' %}" method="POST">
+            <div class="row">{% csrf_token %}
+                
+                <div class="input-field">
+                    <i class="small material-icons prefix">perm_identity</i>
+                    <input  id="username" type="text" class="validate" name='username'>
+                    <label for="username">UserName</label>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field push-s4 col s4">
-                <input id="password" type="password" class="validate" name='password'>
-                <label for="password">Password</label>
+            <div class="row">
+                <div class="input-field">
+                     <i class="small material-icons prefix">vpn_key</i>
+                    <input id="password" type="password" class="validate" name='password'>
+                    <label for="password">Password</label>
+                </div>
+               
             </div>
-        </div>
-        <div class='row'>
-            <div class="input-field push-s4 col s4">
-                <button class="btn waves-effect waves-light" type="submit">Submit
-                    <i class="material-icons right">send</i>
-                </button>
-            </div>
-            <div class="input-field push-s2 col s4">
-                <a href="{% url 'login:signup' %}"
-                   <button class="btn waves-effect waves-light" >SignUp
+            <div class='row'>
+                <div class="input-field">
+                    <button class="btn waves-effect waves-light" type="submit">Submit
                         <i class="material-icons right">send</i>
                     </button>
-                </a>
+                    <a href="{% url 'login:signup' %}" class='right'>Signup now!</a>
+                </div>
             </div>
-        </div>
-    </form>
+            
+        </form>
+    </div>
 </div>
 {% endblock %}    
 
