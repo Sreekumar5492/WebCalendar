@@ -18,7 +18,16 @@ $('#signupform').validate({
         },
         username: {
             required: true,
-            minlength: 3
+            minlength: 3,
+            remote: {
+                url: "/user_available/",
+                type: "post",
+                data: {
+                    username: function () {
+                        return $("#username").val();
+                    }
+                }
+            }
         },
         password1: {
             required: true,

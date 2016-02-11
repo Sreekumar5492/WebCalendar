@@ -1,10 +1,12 @@
 from django.shortcuts import render ,redirect
+from django.http import JsonResponse
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout
 from web_calendar.models import *
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 def login(request):
     return render(request,'login/login.html')
@@ -56,3 +58,14 @@ def signup(request):
         else:
             return render(request,'login/signup.html')
     return render(request,'login/signup.html',args)
+
+@csrf_exempt
+def user_available(request):
+     if request.POST:
+        user   = request.POST['username']
+        if User.objects.filter(username=user).exists():
+             response = 'Username already Exists!'
+        else:
+             response = 'true'
+        return JsonResponse(response,safe=False)
+             
