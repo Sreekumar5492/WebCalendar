@@ -16,16 +16,16 @@ WebCalendar-Login
         <p  style="color: red" class='center hidden'></p>
         {% endif %}
         
-        <form class="col s12 " action="{% url 'login:loginuser' %}" method="POST">
+        <form id="loginform" class="col s12 " action="{% url 'login:loginuser' %}" method="POST">
             <div class="row">{% csrf_token %}
                 <div class="input-field">
                     <i class="small material-icons prefix">perm_identity</i>
                     {% if messages %}
                     {% for message in messages %}
-                    <input  id="username" type="text" class="validate invalid" name='username'>
+                    <input  id="username" type="text" class="invalid" name='username'>
                     {% endfor %}
                     {% else %}
-                    <input  id="username" type="text" class="validate" name='username'>
+                    <input  id="username" type="text"  name='username'>
                     {% endif %}
                     <label for="username">UserName</label>
                 </div>
@@ -35,10 +35,10 @@ WebCalendar-Login
                     <i class="small material-icons prefix">vpn_key</i>
                     {% if messages %}
                     {% for message in messages %}
-                    <input id="password" type="password" class="validate invalid" name='password'>
+                    <input id="password" type="password" class="invalid" name='password'>
                     {% endfor %}
                     {% else %}
-                    <input id="password" type="password" class="validate" name='password'>
+                    <input id="password" type="password" name='password'>
                     {% endif %}
                     <label for="password">Password</label>
                 </div>
@@ -60,6 +60,9 @@ WebCalendar-Login
 
 {% block css %}
 {{block.super}}
-
 <link rel="stylesheet" href='{% static "css/login.css" %}'>
+{% endblock %}
+{% block script %}
+{{block.super}}
+<script src='{% static "js/login.js" %}'></script>
 {% endblock %}

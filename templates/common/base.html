@@ -17,6 +17,7 @@ and open the template in the editor.
         <link href="{% static 'css/icon.css' %}" rel="stylesheet">
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href='{% static "css/materialize.min.css" %}' media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href='{% static "js/base.css" %}' media="screen,projection"/>
         {% endblock %}
         <!--Let browser know website is optimized for mobile-->
     </head>
@@ -28,6 +29,9 @@ and open the template in the editor.
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
         <script type="text/javascript" src='{% static "js/materialize.min.js" %}'></script>
+        <script src="{% static 'js/validate/jquery.validate.js' %}"></script>
+        <script src="{% static 'js/validate/jquery.validate.min.js' %}"></script>
+        <script src="{% static 'js/velocity.min.js' %}"></script>
         {% endblock %}
     </body>
 </html>

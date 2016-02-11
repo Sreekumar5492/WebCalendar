@@ -5,43 +5,78 @@ WebCalendar-Login
 {% endblock %}
 
 {% block body %}
-<div class="row signupbox">
-    <form class="col s12" action="{% url 'login:signup' %}" method="POST">
-        {{form}}
-        <div class="row">{% csrf_token %}
-            <div class="input-fieldcol s4">
-                <label for="username">UserName</label>
-                <input  id="username" type="text" class="validate" name='username'>
+<div class="row">
+    <div class="signupbox z-depth-5">
+        <h2 class='center'>Sign Up!</h2>
+        {% if messages %}
+        {% for message in messages %}
+        <p style="color: red" class='center'>{{message}}</p>
+        {% endfor %}
+        {% else %}
+        <p  style="color: red" class='center hidden'></p>
+        {% endif %}
+        <form id="signupform" action="{% url 'login:signup' %}" method="POST">
+            <div class="row">{% csrf_token %}
+                <div class="input-field">
+                    <i class="mdi-action-account-circle small prefix"></i>
+                    <input  id="name" type="text"  name='name' value="{{name}}">
+                    <label for="name">Name</label>
 
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-fieldcol s4">
-                <label for="password">Password</label>
-                <input id="password1" type="password" class="validate" name='password1'>
+            <div class="row">{% csrf_token %}
+                <div class="input-field">
+                    <i class="mdi-communication-email prefix"></i>
+                    <input  id="email" type="email"  name='email' value="{{email}}">
+                    <label for="email">Email</label>
 
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-fieldcol s4">
-                <label for="password">Password</label>
-                <input id="password2" type="password" class="validate" name='password2'>
+            <div class="row">{% csrf_token %}
+                <div class="input-field">
+                    <i class="small material-icons prefix">perm_identity</i>
+                    {% if messages %}
+                    <input  id="username" type="text" class="invalid" name='username'>
+                    {% else %}
+                    <input  id="username" type="text"  name='username'>
+                    {% endif %}
+                    <label for="username">UserName</label>
 
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s4">
-                <button class="btn waves-effect waves-light" type="submit">Submit
-                    <i class="material-icons right">send</i>
-                </button>
+            <div class="row">
+                <div class="input-field">
+                    <i class="small material-icons prefix">vpn_key</i>
+                    <input id="password1" type="password" name='password1'>
+                    <label for="password">Password</label>
+
+                </div>
             </div>
-        </div>
-    </form>
+            <div class="row">
+                <div class="input-field">
+                    <i class="small material-icons prefix">vpn_key</i>
+                    <input id="password2" type="password" name='password2'>
+                    <label for="password">Enter Again</label>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <button class="btn waves-effect waves-light right" type="submit">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 {% endblock %}    
 
 {% block css %}
 {{block.super}}
-
 <link rel="stylesheet" href='{% static "css/login.css" %}'>
+{% endblock %}
+{% block script %}
+{{block.super}}
+<script src='{% static "js/login.js" %}'></script>
 {% endblock %}

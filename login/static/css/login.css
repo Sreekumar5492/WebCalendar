@@ -9,21 +9,21 @@ and open the template in the editor.
 */
 .base{
     background-color: #99BF4C;    
-    margin-left: 457px;
-    margin-top: 110px;
-
 }
 .loginbox{
+    margin-left: 457px;
+    margin-top: 110px;
     background-color: white;
     height: 370px;
     width: 402px;
     padding: 5px;
 }
 .signupbox{
+    margin-left: 415px; 
     margin-top: 50px;
-    margin-left: 200px;
-    margin-right: 550px;
-
+    background-color: white;
+    width: 500px;
+    padding: 8px 8px;
 }
 h1{
     font-style: italic;
