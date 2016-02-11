@@ -4,6 +4,7 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout
 from web_calendar.forms import userprofileform
 from django.contrib.auth.models import User
+from django.contrib import messages
 # Create your views here.
 def login(request):
     return render(request,'login/login.html')
@@ -14,9 +15,12 @@ def loginuser(request):
         pwd         = request.POST['password']
         user        = authenticate(username=username,password=pwd)
         if user is not None:
+            print '22'
             auth_login(request, user)
             return redirect('/web_calendar/home/')
         else:
+            messages.add_message(request, messages.ERROR, 'Username or Password is invalid!.')
+            print '11',messages
             return render(request,'login/login.html')
 def logoutuser(request):
     logout(request)

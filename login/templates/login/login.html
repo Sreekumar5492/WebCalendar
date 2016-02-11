@@ -10,7 +10,13 @@ WebCalendar-Login
         <h2 class='center'>Login!</h2>
         <form class="col s12 " action="{% url 'login:loginuser' %}" method="POST">
             <div class="row">{% csrf_token %}
-                
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
                 <div class="input-field">
                     <i class="small material-icons prefix">perm_identity</i>
                     <input  id="username" type="text" class="validate" name='username'>
@@ -19,11 +25,11 @@ WebCalendar-Login
             </div>
             <div class="row">
                 <div class="input-field">
-                     <i class="small material-icons prefix">vpn_key</i>
+                    <i class="small material-icons prefix">vpn_key</i>
                     <input id="password" type="password" class="validate" name='password'>
                     <label for="password">Password</label>
                 </div>
-               
+
             </div>
             <div class='row'>
                 <div class="input-field">
@@ -33,7 +39,7 @@ WebCalendar-Login
                     <a href="{% url 'login:signup' %}" class='right'>Signup now!</a>
                 </div>
             </div>
-            
+
         </form>
     </div>
 </div>
