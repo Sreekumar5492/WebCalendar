@@ -18,7 +18,7 @@ def loginuser(request):
             auth_login(request, user)
             return redirect('/web_calendar/home/')
         else:
-            messages.add_message(request, messages.ERROR, "Credintials are invalid!.")
+            messages.add_message(request, messages.ERROR, "Invalid credentials!")
             return render(request,'login/login.html')
 def logoutuser(request):
     logout(request)

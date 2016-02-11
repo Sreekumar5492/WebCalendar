@@ -13,7 +13,7 @@ WebCalendar-Login
         <p style="color: red" class='center'>{{message}}</p>
         {% endfor %}
         {% else %}
-         <p  style="color: red" class='center hidden'></p>
+        <p  style="color: red" class='center hidden'></p>
         {% endif %}
         
         <form class="col s12 " action="{% url 'login:loginuser' %}" method="POST">
