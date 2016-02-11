@@ -51,7 +51,7 @@ def signup(request):
                 userp.save()
                 return render(request,'login/login.html')
             except Exception,e:
-                messages.add_message(request, messages.ERROR, "Failed! Try again Later! "+str(e))
+                messages.add_message(request, messages.ERROR, "Failed! Try again Later! ")
                 return render(request,'login/signup.html')
         else:
             return render(request,'login/signup.html')

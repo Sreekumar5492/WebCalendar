@@ -6,3 +6,4 @@ staticfiles
 /static_dir/
 /nbproject/private/
 migrations/
+db.sqlite3
