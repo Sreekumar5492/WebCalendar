@@ -8,25 +8,35 @@ WebCalendar-Login
 <div class="row">
     <div class='loginbox z-depth-5'>
         <h2 class='center'>Login!</h2>
+        {% if messages %}
+        {% for message in messages %}
+        <p style="color: red" class='center'>{{message}}</p>
+        {% endfor %}
+        {% endif %}
         <form class="col s12 " action="{% url 'login:loginuser' %}" method="POST">
             <div class="row">{% csrf_token %}
-                {% if messages %}
-                <ul class="messages">
-                    {% for message in messages %}
-                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
                 <div class="input-field">
                     <i class="small material-icons prefix">perm_identity</i>
+                    {% if messages %}
+                    {% for message in messages %}
+                    <input  id="username" type="text" class="validate invalid" name='username'>
+                    {% endfor %}
+                    {% else %}
                     <input  id="username" type="text" class="validate" name='username'>
+                    {% endif %}
                     <label for="username">UserName</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field">
                     <i class="small material-icons prefix">vpn_key</i>
+                    {% if messages %}
+                    {% for message in messages %}
+                    <input id="password" type="password" class="validate invalid" name='password'>
+                    {% endfor %}
+                    {% else %}
                     <input id="password" type="password" class="validate" name='password'>
+                    {% endif %}
                     <label for="password">Password</label>
                 </div>
 
