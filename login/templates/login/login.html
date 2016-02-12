@@ -8,14 +8,7 @@ WebCalendar-Login
 <div class="row">
     <div class='loginbox z-depth-5'>
         <h2 class='center'>Login!</h2>
-        {% if messages %}
-        {% for message in messages %}
-        <p style="color: red" class='center'>{{message}}</p>
-        {% endfor %}
-        {% else %}
-        <p  style="color: red" class='center hidden'></p>
-        {% endif %}
-        
+        <p id="msg"  style="color: red" class='center hidden'></p>
         <form id="loginform" class="col s12 " action="{% url 'login:loginuser' %}" method="POST">
             <div class="row">{% csrf_token %}
                 <div class="input-field">

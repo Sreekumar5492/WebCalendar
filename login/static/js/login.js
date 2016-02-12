@@ -14,16 +14,16 @@ $(document).ready(function () {
             name: {
                 required: true,
                 minlength: 2,
-                noSpace:true
+                noSpace: true
             },
             email: {
                 required: true,
-                noSpace:true,
+                noSpace: true,
                 email: true
             },
             username: {
                 required: true,
-                noSpace:true,
+                noSpace: true,
                 minlength: 3,
                 remote: {
                     url: "/user_available/",
@@ -37,12 +37,12 @@ $(document).ready(function () {
             },
             password1: {
                 required: true,
-                noSpace:true,
+                noSpace: true,
                 minlength: 4
             },
             password2: {
                 required: true,
-                noSpace:true,
+                noSpace: true,
                 minlength: 4,
                 equalTo: '#password1'
             }
@@ -82,5 +82,38 @@ $(document).ready(function () {
             }
         }
     });
+    $('#loginform').on('submit', function (e) {
+        if ($('#loginform').valid()) {
 
-})
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '/loginuser/',
+                data: {
+                    'username': $('#username').val(),
+                    'password': $('#password').val(),
+                    'csrfmiddlewaretoken': $("input[name=csrfmiddlewaretoken]").val()
+                },
+                success: function (data) {
+                    var d = $.parseJSON(data);
+                    if (d.login) {
+                        window.location.href = '/web_calendar/home/';
+                    } else {
+                        $('#username').addClass('invalid');
+                        $('#password').addClass('invalid');
+                        $('#msg').removeClass('hidden');
+                        $('#msg').text(d.message);
+
+
+                    }
+                }
+
+            });
+        }
+
+    });
+
+
+
+
+});

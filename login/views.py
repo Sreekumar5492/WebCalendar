@@ -1,4 +1,4 @@
-from django.shortcuts import render ,redirect
+from django.shortcuts import render ,redirect,HttpResponse
 from django.http import JsonResponse
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
@@ -7,6 +7,7 @@ from web_calendar.models import *
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
+import json
 # Create your views here.
 def login(request):
     return render(request,'login/login.html')
@@ -18,10 +19,13 @@ def loginuser(request):
         user        = authenticate(username=username,password=pwd)
         if user is not None:
             auth_login(request, user)
-            return redirect('/web_calendar/home/')
+            arg     = {"login":True,"message":"Success!"}             
+            return HttpResponse(json.dumps(arg))
+#            return redirect('/web_calendar/home/')
         else:
-            messages.add_message(request, messages.ERROR, "Invalid credentials!")
-            return render(request,'login/login.html')
+#            messages.add_message(request, messages.ERROR, "Invalid credentials!")
+            arg     = {"login":False,"message":"Invalid credentials!"}  
+            return HttpResponse(json.dumps(arg))
 def logoutuser(request):
     logout(request)
     return render(request,'login/login.html')
