@@ -18,8 +18,8 @@ $(document).ready(function () {
             },
             email: {
                 required: true,
-                email: true,
-                noSpace:true
+                noSpace:true,
+                email: true
             },
             username: {
                 required: true,
