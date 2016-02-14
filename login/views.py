@@ -19,7 +19,7 @@ def loginuser(request):
         user        = authenticate(username=username,password=pwd)
         if user is not None:
             auth_login(request, user)
-            arg     = {"login":True,"message":"Success!"}             
+            arg     = {"login":True,"message":"Success! Loggin In.."}             
             return HttpResponse(json.dumps(arg))
 #            return redirect('/web_calendar/home/')
         else:

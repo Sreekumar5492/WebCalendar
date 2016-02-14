@@ -95,11 +95,13 @@ $(document).ready(function () {
                     'csrfmiddlewaretoken': $("input[name=csrfmiddlewaretoken]").val()
                 },
                 success: function (data) {
-                    $('.login_loader').hide();
                     var d = $.parseJSON(data);
                     if (d.login) {
+                        $('#msg').removeClass('hidden');
+                        $('#msg').text(d.message).css('color', 'green');
                         window.location.href = '/web_calendar/home/';
                     } else {
+                        $('.login_loader').hide();
                         $('#username').addClass('invalid');
                         $('#password').addClass('invalid');
                         $('#msg').removeClass('hidden');
@@ -134,6 +136,7 @@ $(document).ready(function () {
                     if (d.status) {
                         $('#signup_form').velocity('fadeOut', {duration: 50});
                         $('#login_form').velocity('fadeIn', {duration: 500});
+                        $('#msg').removeClass('hidden');
                         $('#msg').text(d.message).css('color', 'green');
                     } else {
                         $('#msg').removeClass('hidden');
