@@ -83,6 +83,7 @@ $(document).ready(function () {
         }
     });
     $('#loginform').on('submit', function (e) {
+        $('#msg').addClass('hidden');
         if ($('#loginform').valid()) {
             e.preventDefault();
             $('.login_loader').show();
@@ -116,6 +117,7 @@ $(document).ready(function () {
 
     });
     $('#signupform').on('submit', function (e) {
+        $('#msg').addClass('hidden');
         if ($('#signupform').valid()) {
             e.preventDefault();
             $('.signup_loader').show();
