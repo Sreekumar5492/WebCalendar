@@ -152,14 +152,14 @@ $(document).ready(function () {
     });
     $(document).on('click', '#signup', function (e) {
         e.preventDefault();
-        $('#login_form').velocity('fadeOut', {duration: 50});
-        $('#signup_form').velocity('fadeIn', {duration: 500});
+        $('#login_form').velocity('fadeOut', {duration: 500});
+        $('#signup_form').velocity('fadeIn', {duration: 1500});
 
     });
     $(document).on('click', '#login', function (e) {
         e.preventDefault();
-        $('#signup_form').velocity('fadeOut', {duration: 50});
-        $('#login_form').velocity('fadeIn', {duration: 500});
+        $('#signup_form').velocity('fadeOut', {duration: 500});
+        $('#login_form').velocity('fadeIn', {duration: 1500});
 
     });
     $('#calendar').fullCalendar({

@@ -11,8 +11,8 @@ and open the template in the editor.
     background-image: url('../img/b.jpg');    
 }
 .loginbox{
-    position: relative;
-    left: 422px;
+    position: absolute;
+    left: 785px;
     top: 100px;
     background-color: white;
     height: 410px;
@@ -22,8 +22,8 @@ and open the template in the editor.
     opacity: 0.9;
 }
 .signupbox{
-    position: relative;
-    left: 374px;
+    position: absolute;
+    left: 785px;
     top: 10px;
     background-color: white;
     width: 500px;
@@ -44,13 +44,13 @@ and open the template in the editor.
 
 }
 #calendar{
-    position: relative;
+    position: absolute;
     background-color: white;
     left: 80px;
     top: 10px;
     border-radius: 10px;
     opacity: 0.5;
-    width: 431px;
+    width:  514px;
     height: 628px;
     overflow: hidden;
 }
