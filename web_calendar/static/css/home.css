@@ -15,10 +15,18 @@ body{
     opacity: 1;
 }
 .calendar{
-    position: absolute;
+    position: relative;
+    padding-left: 10px;
     opacity: 0.7;
-    top: 69px;
-    left: 443px;
+    top: 10px;
+    right:10px;
     border-radius: 10px;
     background-color: white;
+}
+.events{
+    position: relative;
+    opacity: 0.7;
+    top: 10px;
+    border-radius: 10px;
+    background-color: white
 }
