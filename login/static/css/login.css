@@ -46,11 +46,11 @@ and open the template in the editor.
 #calendar{
     position: relative;
     background-color: white;
-    left: 275px;
+    left: 80px;
     top: 10px;
     border-radius: 10px;
     opacity: 0.5;
-    width:400px;
+    width: 431px;
     height: 628px;
     overflow: hidden;
 }
