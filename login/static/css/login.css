@@ -10,13 +10,17 @@ and open the template in the editor.
 .base{
     background-image: url('../img/b.jpg');    
 }
+.logo{
+    position: relative;
+    left: 100px;
+}
 .loginbox{
     position: absolute;
     left: 785px;
     top: 100px;
     background-color: white;
-    height: 410px;
-    width: 402px;
+    height: 375px;
+    width: 435px;
     padding: 5px;
     border-radius: 10px;
     opacity: 0.9;
@@ -34,9 +38,10 @@ and open the template in the editor.
 .heading{
     background-color: #B1EE74;
     border-radius: 10px;
+    width:45%;
 
 }
-.heading>h2{
+.heading>h4{
     font-style: italic;
     font-family: serif;
     font-weight: bold;

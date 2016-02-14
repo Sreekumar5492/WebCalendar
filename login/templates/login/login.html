@@ -10,8 +10,13 @@ WebCalendar-Login
     </div>
     <div class="row login col s6" id="login_form" style="display: block">
         <div class='loginbox z-depth-5'>
-            <div class="heading">
-                <h2 class='center'>Login!</h2>
+            <div class="row">
+                <div class=" col s6 heading">
+                    <h4>Login!</h4>
+                </div>
+                <div class="col s6">
+                    <image  src='{% static "img/logo.jpg" %}'>
+                </div>
             </div>
             <p id="msg"   class='center hidden'></p>
             <div class="progress login_loader" style="display: none;z-index: 2">
@@ -20,14 +25,14 @@ WebCalendar-Login
             <form id="loginform" class="col s12 " action="{% url 'login:loginuser' %}" method="POST">
                 <div class="row">{% csrf_token %}
                     <div class="input-field">
-                        <i class="small material-icons prefix">perm_identity</i>
+                        <i class="small mdi-image-timer-auto prefix"></i>
                         <input  id="username" type="text"  name='username'>
                         <label for="username">UserName</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field">
-                        <i class="small material-icons prefix">vpn_key</i>
+                        <i class="small mdi-communication-vpn-key prefix"></i>
                         <input id="password" type="password" name='password'>
                         <label for="password">Password</label>
                     </div>
@@ -47,8 +52,13 @@ WebCalendar-Login
     </div>
     <div class="row signup col s6" id="signup_form" style="display: none">
         <div class="signupbox z-depth-5">
-            <div class="heading">
-                <h2 class='center'>Sign Up!</h2>
+            <div class="row">
+                <div class="col s6 heading">
+                    <h4 class='center'>Sign Up!</h4>
+                </div>
+                <div class="col s6">
+                    <image  src='{% static "img/logo.jpg" %}'>
+                </div> 
             </div>
             <p id="msg1"  style="color: red" class='center hidden'></p>
             <div class="progress signup_loader" style="display: none;z-index: 2">
@@ -73,7 +83,7 @@ WebCalendar-Login
                 </div>
                 <div class="row">
                     <div class="input-field">
-                        <i class="small material-icons prefix">perm_identity</i>
+                        <i class="small mdi-image-timer-auto prefix"></i>
                         <input  id="username1" type="text"  name='username'>
                         <label for="username">UserName</label>
 
@@ -81,7 +91,7 @@ WebCalendar-Login
                 </div>
                 <div class="row">
                     <div class="input-field">
-                        <i class="small material-icons prefix">vpn_key</i>
+                        <i class="small mdi-communication-vpn-key prefix"></i>
                         <input id="password1" type="password" name='password1'>
                         <label for="password">Password</label>
 
@@ -89,7 +99,7 @@ WebCalendar-Login
                 </div>
                 <div class="row">
                     <div class="input-field">
-                        <i class="small material-icons prefix">vpn_key</i>
+                        <i class="small mdi-communication-vpn-key prefix"></i>
                         <input id="password2" type="password" name='password2'>
                         <label for="password">Enter Again</label>
 
