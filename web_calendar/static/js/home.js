@@ -10,7 +10,7 @@ $(document).ready(function() {
     // page is now ready, initialize the calendar...
 
     $('#calendar').fullCalendar({
-        // put your options and callbacks here
+        // put yheight:465our options and callbacks here
     });
 
 });

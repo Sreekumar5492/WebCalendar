@@ -83,7 +83,7 @@ $(document).ready(function () {
         }
     });
     $('#loginform').on('submit', function (e) {
-         $('#msg').hide();
+        $('#msg').hide();
         if ($('#loginform').valid()) {
             e.preventDefault();
             $('.login_loader').show();
@@ -161,5 +161,16 @@ $(document).ready(function () {
         $('#signup_form').velocity('fadeOut', {duration: 50});
         $('#login_form').velocity('fadeIn', {duration: 500});
 
+    });
+    $('#calendar').fullCalendar({
+        // put your options and callbacks here
+        height: 100,
+        header: {
+            left: 'title',
+            center: '',
+            right: ''
+        },
+        fixedWeekCount:false,
+        contentHeight: 50
     });
 });
