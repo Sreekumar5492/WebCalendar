@@ -43,11 +43,9 @@ def signup(request):
                 user        = User.objects.create_user(username,password=pwd1)
                 user.save()
             except:
-                 messages.add_message(request, messages.ERROR, "Username already exists!")
-                 args = {'name':name,
-                         'email':email
-                        }
-                 return render(request,'login/signup.html',args)
+#                 messages.add_message(request, messages.ERROR, "Username already exists!")
+                 args     = {"status":False,"message":"Username already exists!"} 
+                 return HttpResponse(json.dumps(args))
             
             try:
                 userp       = userprofile()
@@ -55,10 +53,12 @@ def signup(request):
                 userp.email = email
                 userp.user  = user
                 userp.save()
-                return render(request,'login/login.html')
+                args     = {"status":True,"message":"Success, Now Login!"} 
+                return HttpResponse(json.dumps(args))
             except Exception,e:
-                messages.add_message(request, messages.ERROR, "Failed! Try again Later! ")
-                return render(request,'login/signup.html')
+#                messages.add_message(request, messages.ERROR, "Failed! Try again Later! ")
+                args     = {"status":False,"message":"Failed! Try again Later!"} 
+                return HttpResponse(json.dumps(args))
         else:
             return render(request,'login/signup.html')
     return render(request,'login/signup.html',args)

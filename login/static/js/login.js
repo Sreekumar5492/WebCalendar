@@ -30,7 +30,7 @@ $(document).ready(function () {
                     type: "post",
                     data: {
                         username: function () {
-                            return $("#username").val();
+                            return $("#username1").val();
                         }
                     }
                 }
@@ -84,17 +84,18 @@ $(document).ready(function () {
     });
     $('#loginform').on('submit', function (e) {
         if ($('#loginform').valid()) {
-
             e.preventDefault();
+            $('.login_loader').show();
             $.ajax({
                 type: 'POST',
                 url: '/loginuser/',
                 data: {
-                    'username': $('#username').val(),
+                    'username': $('#username:visible').val(),
                     'password': $('#password').val(),
                     'csrfmiddlewaretoken': $("input[name=csrfmiddlewaretoken]").val()
                 },
                 success: function (data) {
+                    $('.login_loader').hide();
                     var d = $.parseJSON(data);
                     if (d.login) {
                         window.location.href = '/web_calendar/home/';
@@ -102,7 +103,7 @@ $(document).ready(function () {
                         $('#username').addClass('invalid');
                         $('#password').addClass('invalid');
                         $('#msg').removeClass('hidden');
-                        $('#msg').text(d.message);
+                        $('#msg').text(d.message).css('color', 'red');
 
 
                     }
@@ -112,8 +113,48 @@ $(document).ready(function () {
         }
 
     });
+    $('#signupform').on('submit', function (e) {
+        if ($('#signupform').valid()) {
+            e.preventDefault();
+            $('.signup_loader').show();
+            $.ajax({
+                type: 'POST',
+                url: '/signup/',
+                data: {
+                    'name': $('#name').val(),
+                    'email': $('#email1').val(),
+                    'username': $('#username1').val(),
+                    'password1': $('#password1').val(),
+                    'password2': $('#password2').val(),
+                    'csrfmiddlewaretoken': $("input[name=csrfmiddlewaretoken]").val()
+                },
+                success: function (data) {
+                    $('.signup_loader').hide();
+                    var d = $.parseJSON(data);
+                    if (d.status) {
+                        $('#signup_form').velocity('fadeOut', {duration: 50});
+                        $('#login_form').velocity('fadeIn', {duration: 500});
+                        $('#msg').text(d.message).css('color', 'green');
+                    } else {
+                        $('#msg').removeClass('hidden');
+                        $('#msg').text(d.message).css('color', 'red');
+                    }
+                }
 
+            });
+        }
 
+    });
+    $(document).on('click', '#signup', function (e) {
+        e.preventDefault();
+        $('#login_form').velocity('fadeOut', {duration: 50});
+        $('#signup_form').velocity('fadeIn', {duration: 500});
 
+    });
+    $(document).on('click', '#login', function (e) {
+        e.preventDefault();
+        $('#signup_form').velocity('fadeOut', {duration: 50});
+        $('#login_form').velocity('fadeIn', {duration: 500});
 
+    });
 });
