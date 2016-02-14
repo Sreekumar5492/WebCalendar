@@ -105,8 +105,8 @@ $(document).ready(function () {
                         $('.login_loader').hide();
                         $('#username').addClass('invalid');
                         $('#password').addClass('invalid');
-                        $('#msg').show();
                         $('#msg').text(d.message).css('color', 'red');
+                        $('#msg').show();
 
 
                     }
@@ -138,11 +138,11 @@ $(document).ready(function () {
                     if (d.status) {
                         $('#signup_form').velocity('fadeOut', {duration: 50});
                         $('#login_form').velocity('fadeIn', {duration: 500});
-                        $('#msg1').show();
-                        $('#msg1').text(d.message).css('color', 'green');
+                        $('#msg').text(d.message).css('color', 'green');
+                        $('#msg').show();
                     } else {
-                        $('#msg1').show();
                         $('#msg1').text(d.message).css('color', 'red');
+                        $('#msg1').show();
                     }
                 }
 
@@ -170,7 +170,7 @@ $(document).ready(function () {
             center: '',
             right: ''
         },
-        fixedWeekCount:false,
+        fixedWeekCount: false,
         contentHeight: 50
     });
 });
