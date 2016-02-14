@@ -19,12 +19,12 @@ def loginuser(request):
         user        = authenticate(username=username,password=pwd)
         if user is not None:
             auth_login(request, user)
-            arg     = {"login":True,"message":"Success! Loggin In.."}             
+            arg     = {"login":True,"message":"Success! Logging In.."}             
             return HttpResponse(json.dumps(arg))
 #            return redirect('/web_calendar/home/')
         else:
 #            messages.add_message(request, messages.ERROR, "Invalid credentials!")
-            arg     = {"login":False,"message":"Invalid credentials!"}  
+            arg     = {"login":False,"message":"Invalid credentials! Try Again!"}  
             return HttpResponse(json.dumps(arg))
 def logoutuser(request):
     logout(request)
