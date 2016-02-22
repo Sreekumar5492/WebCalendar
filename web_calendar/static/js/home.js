@@ -5,28 +5,33 @@
  */
 
 
-$(document).ready(function() {
-
+$(document).ready(function () {
+    var pdata;
+    var event = [];
     // page is now ready, initialize the calendar...
-
-    $('#calendar').fullCalendar({
-        // put yheight:465our options and callbacks here
-        events: [
-        {
-            title  : 'event1',
-            start  : '2016-02-01'
+    $.ajax({
+        method: 'POST',
+        url: '/web_calendar/get_events/',
+        data: {
+            'data': 'events'
         },
-        {
-            title  : 'event2',
-            start  : '2016-02-05',
-            end    : '2016-02-07'
-        },
-        {
-            title  : 'event3',
-            start  : '2016-02-09T12:30:00',
-            allDay : false // will make the time show
+        success: function (data) {
+            pdata = JSON.parse(data);
+            console.log('parsed' + pdata);
+            $.each(pdata, function (i, ele) {
+                var event_dict = {};
+                event_dict.title = ele.name;
+                event_dict.start = ele.start;
+                event_dict.end = ele.end;
+                console.log(event_dict)
+                event.push(event_dict);
+            });
+            $('#calendar').fullCalendar({
+                events: event
+            });
         }
-    ]
+
     });
+
 
 });

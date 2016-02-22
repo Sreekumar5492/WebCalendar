@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 body{
-    background-image: url('../img/c.jpg');
+    background-color:#eee
 }
 .navbar{
     opacity: 1;
@@ -24,6 +24,7 @@ body{
     background-color: white;
 }
 .events{
+    margin-right: 100px;
     position: relative;
     opacity: 0.7;
     top: 10px;

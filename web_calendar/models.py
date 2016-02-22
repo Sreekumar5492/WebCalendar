@@ -9,13 +9,14 @@ class userprofile(models.Model):
 	return self.name
 
 class events(models.Model):
-    name = models.CharField(max_length=20)
-    user = models.ForeignKey(User)
-    event_type = models.CharField(max_length=20)
-    Description = models.TextField(max_length=100)
-    start_date = models.DateTimeField()
-    end_date   = models.DateTimeField()
-    status     = models.BooleanField(default=False)
+    name                = models.CharField(max_length=20)
+    user                = models.ForeignKey(User)
+    event_type          = models.CharField(max_length=20)
+    Description         = models.TextField(max_length=100)
+    start               = models.DateTimeField()
+    end                 = models.DateTimeField()
+    allday              = models.BooleanField(default=False)
+    status              = models.BooleanField(default=False)
     Notification_status = models.BooleanField(default=False)
     Notification_time   = models.DateTimeField()
     Location            = models.TextField(max_length=100)
